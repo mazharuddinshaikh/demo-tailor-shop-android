@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Digi Tailors</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="signIn">Signin in</string>
+    <string name="user_name_or_email_or_mobile">User Name / Email / Mobile</string>
+    <string name="password">Password</string>
+    <string name="addDress">Add Dress</string>
+    <string name="dresses">Dresses</string>
+    <string name="profile">Profile</string>
+</resources>

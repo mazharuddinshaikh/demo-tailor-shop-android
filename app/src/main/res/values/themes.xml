@@ -1,0 +1,32 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="Theme.DemoTailorShop" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <!--
+        colorPrimary – The color of the app bar( tool bar).
+        colorPrimaryDark – (notification bar) The color of the status bar and contextual app bars; this is normally a dark version of colorPrimary.
+        colorAccent – (radio button or check box) The color of UI controls such as check boxes, radio buttons, and edit text boxes.
+        windowBackground – The color of the screen background.
+        textColorPrimary – The color of UI text in the app bar.
+        statusBarColor – The color of the status bar.
+        navigationBarColor – The color of the navigation bar.
+
+        -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryVariant">@color/primaryDarkColor</item>
+        <item name="colorOnPrimary">@color/primaryTextColor</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/secondaryColor</item>
+        <item name="colorSecondaryVariant">@color/secondaryDarkColor</item>
+        <item name="colorOnSecondary">@color/secondaryTextColor</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.splashScreenTheme" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_screen_background</item>
+    </style>
+
+</resources>

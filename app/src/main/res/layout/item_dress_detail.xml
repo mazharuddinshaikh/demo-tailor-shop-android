@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/grpDressDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:constraint_referenced_ids="tvLabelDressType, tilDressType, tvLabelDressCount, tilDressCount, tvLabelOrderDate,tilOrderDate, tvLabelDeliveryDate, tilDeliveryDate, tvLabelDeliveryStatus, tilDeliveryStatus, tvLabelPaymentStatus, tilPaymentStatus, tvLabelAmount, tilAmount, tvLabelDiscountedAmount, tilDiscountedAmount, tvComment, tilComment, rvMeasurement"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glVForty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <TextView
+        android:id="@+id/tvDressType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/dress_detail_background"
+        android:padding="4dp"
+        app:layout_constraintBottom_toTopOf="@id/tilDressType"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:drawableEndCompat="@drawable/ic_arrow_drop_down_24" />
+
+    <TextView
+        android:id="@+id/tvLabelDressType"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="4dp"
+        android:text="Dress Type: "
+        app:layout_constraintBottom_toTopOf="@id/tilDressCount"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/glVForty"
+        app:layout_constraintTop_toBottomOf="@id/tvDressType" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilDressType"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:hint="Dress Type"
+        app:endIconDrawable="@drawable/ic_edit_24"
+        app:endIconMode="custom"
+        app:errorEnabled="true"
+        app:layout_constraintBottom_toTopOf="@id/tilDressCount"
+        app:layout_constraintLeft_toRightOf="@id/glVForty"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDressType"
+        app:startIconDrawable="@drawable/ic_user_name_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tietDressType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvLabelDressCount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="4dp"
+        android:text="Dress Count: "
+        app:layout_constraintBottom_toTopOf="@id/tilOrderDate"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/glVForty"
+        app:layout_constraintTop_toBottomOf="@id/tilDressType" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilDressCount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:hint="Dress Count"
+        app:endIconDrawable="@drawable/ic_edit_24"
+        app:endIconMode="custom"
+        app:errorEnabled="true"
+        app:layout_constraintBottom_toTopOf="@id/tilOrderDate"
+        app:layout_constraintLeft_toRightOf="@id/glVForty"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilDressType"
+        app:startIconDrawable="@drawable/ic_user_name_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tietDressCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvLabelOrderDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="4dp"
+        android:text="Order Date"
+        app:layout_constraintBottom_toTopOf="@id/tilDeliveryDate"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/glVForty"
+        app:layout_constraintTop_toBottomOf="@id/tilDressCount" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilOrderDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:hint="Order Date"
+        app:endIconDrawable="@drawable/ic_edit_24"
+        app:endIconMode="custom"
+        app:errorEnabled="true"
+        app:layout_constraintBottom_toTopOf="@id/tilDeliveryDate"
+        app:layout_constraintLeft_toRightOf="@id/glVForty"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilDressCount"
+        app:startIconDrawable="@drawable/ic_user_name_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tietOrderDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvLabelDeliveryDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="4dp"
+        android:text="Delivery Date"
+        app:layout_constraintBottom_toTopOf="@id/tilDeliveryStatus"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/glVForty"
+        app:layout_constraintTop_toBottomOf="@id/tilOrderDate" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilDeliveryDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:hint="Delivery Date"
+        app:endIconDrawable="@drawable/ic_edit_24"
+        app:endIconMode="custom"
+        app:errorEnabled="true"
+        app:layout_constraintBottom_toTopOf="@id/tilDeliveryStatus"
+        app:layout_constraintLeft_toRightOf="@id/glVForty"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilOrderDate"
+        app:startIconDrawable="@drawable/ic_user_name_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tietDeliveryDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvLabelDeliveryStatus"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="4dp"
+        android:text="Delivery Status"
+        app:layout_constraintBottom_toTopOf="@id/tilPaymentStatus"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/glVForty"
+        app:layout_constraintTop_toBottomOf="@id/tilDeliveryDate" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilDeliveryStatus"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:hint="Delivery Status"
+        app:endIconDrawable="@drawable/ic_edit_24"
+        app:endIconMode="custom"
+        app:errorEnabled="true"
+        app:layout_constraintBottom_toTopOf="@id/tilPaymentStatus"
+        app:layout_constraintLeft_toRightOf="@id/glVForty"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilDeliveryDate"
+        app:startIconDrawable="@drawable/ic_user_name_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tietDeliveryStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvLabelPaymentStatus"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="4dp"
+        android:text="Payment Status"
+        app:layout_constraintBottom_toTopOf="@id/tilAmount"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/glVForty"
+        app:layout_constraintTop_toBottomOf="@id/tilDeliveryStatus" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilPaymentStatus"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:hint="Payment Status"
+        app:endIconDrawable="@drawable/ic_edit_24"
+        app:endIconMode="custom"
+        app:errorEnabled="true"
+        app:layout_constraintBottom_toTopOf="@id/tilAmount"
+        app:layout_constraintLeft_toRightOf="@id/glVForty"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilDeliveryStatus"
+        app:startIconDrawable="@drawable/ic_user_name_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tietPaymentStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvLabelAmount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="4dp"
+        android:text="Amount"
+        app:layout_constraintBottom_toTopOf="@id/tilDiscountedAmount"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/glVForty"
+        app:layout_constraintTop_toBottomOf="@id/tilPaymentStatus" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilAmount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:hint="Amount"
+        app:errorEnabled="true"
+        app:layout_constraintBottom_toTopOf="@id/tilDiscountedAmount"
+        app:layout_constraintLeft_toRightOf="@id/glVForty"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilPaymentStatus"
+        app:startIconDrawable="@drawable/ic_user_name_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tietAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvLabelDiscountedAmount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="4dp"
+        android:text="Discounted Amount"
+        app:layout_constraintBottom_toTopOf="@id/tilComment"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/glVForty"
+        app:layout_constraintTop_toBottomOf="@id/tilAmount" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilDiscountedAmount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:hint="Discounted Amount"
+        app:endIconDrawable="@drawable/ic_edit_24"
+        app:endIconMode="custom"
+        app:errorEnabled="true"
+        app:layout_constraintBottom_toTopOf="@id/tilComment"
+        app:layout_constraintLeft_toRightOf="@id/glVForty"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilAmount"
+        app:startIconDrawable="@drawable/ic_user_name_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tietDiscountedAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvComment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="4dp"
+        android:text="Comment"
+        app:layout_constraintBottom_toTopOf="@id/rvMeasurement"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/glVForty"
+        app:layout_constraintTop_toBottomOf="@id/tilDiscountedAmount" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilComment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:hint="Comment"
+        app:endIconDrawable="@drawable/ic_edit_24"
+        app:endIconMode="custom"
+        app:errorEnabled="true"
+        app:layout_constraintBottom_toTopOf="@id/rvMeasurement"
+        app:layout_constraintLeft_toRightOf="@id/glVForty"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilDiscountedAmount"
+        app:startIconDrawable="@drawable/ic_user_name_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tietComment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionDone"
+            android:inputType="textMultiLine" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMeasurement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilComment" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

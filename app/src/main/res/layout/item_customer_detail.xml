@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/clCustomerDetail"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/grpCustomer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:constraint_referenced_ids="tvCustomerNameLabel, tilCustomerName, tvCustomerEmailLabel, tilCustomerEmail, tvInvoiceNoLabel, tilInvoiceNo, tvDressCountLabel, tilDressCount, tvOrderDateLabel, tilOrderDate, tvDeliveryStatusLabel, tilDeliveryStatus, tvDeliveryDateLabel, tilDeliveryDate"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glVSeventy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.7" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glVForty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilCustomerMobileNo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:hint="Mobile No."
+        app:endIconDrawable="@drawable/ic_edit_24"
+        app:endIconMode="custom"
+        app:errorEnabled="true"
+        app:layout_constraintBottom_toTopOf="@id/tvLabelCustomerDetail"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/glVSeventy"
+        app:layout_constraintTop_toTopOf="parent"
+        app:startIconDrawable="@drawable/ic_user_name_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tietCustomerMobileNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionDone"
+            android:inputType="phone" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--<TextView
+        android:id="@+id/tvCustomerMobileEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="4dp"
+        android:drawableTop="@drawable/ic_edit_24"
+        app:layout_constraintBottom_toTopOf="@id/tvLabelCustomerDetail"
+        app:layout_constraintLeft_toRightOf="@id/glVSeventy"
+        app:layout_constraintRight_toLeftOf="@id/tvCustomerMobileCall"
+        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <TextView
+        android:id="@+id/tvCustomerMobileCall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="4dp"
+        android:text="Call"
+        app:layout_constraintBottom_toTopOf="@id/tvLabelCustomerDetail"
+        app:layout_constraintLeft_toRightOf="@id/glVSeventy"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:drawableTopCompat="@drawable/ic_call_24" />
+
+    <TextView
+        android:id="@+id/tvLabelCustomerDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/dress_detail_background"
+        android:padding="8dp"
+        android:text="Customer Details"
+        app:layout_constraintBottom_toTopOf="@id/tilCustomerName"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilCustomerMobileNo"
+        app:drawableEndCompat="@drawable/ic_arrow_drop_down_24" />
+
+    <TextView
+        android:id="@+id/tvCustomerNameLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="4dp"
+        android:text="Customer Name"
+        app:layout_constraintBottom_toTopOf="@id/tilCustomerEmail"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/glVForty"
+        app:layout_constraintTop_toBottomOf="@id/tvLabelCustomerDetail" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilCustomerName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:hint="Customer Name"
+        app:endIconDrawable="@drawable/ic_edit_24"
+        app:endIconMode="custom"
+        app:errorEnabled="true"
+        app:layout_constraintBottom_toTopOf="@id/tilCustomerEmail"
+        app:layout_constraintLeft_toRightOf="@id/glVForty"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvLabelCustomerDetail"
+        app:startIconDrawable="@drawable/ic_user_name_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tietCustomerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvCustomerEmailLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="4dp"
+        android:text="Email: "
+        app:layout_constraintBottom_toTopOf="@id/tilInvoiceNo"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/glVForty"
+        app:layout_constraintTop_toBottomOf="@id/tilCustomerName" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilCustomerEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:hint="Email"
+        app:endIconDrawable="@drawable/ic_edit_24"
+        app:endIconMode="custom"
+        app:errorEnabled="true"
+        app:layout_constraintBottom_toTopOf="@id/tilInvoiceNo"
+        app:layout_constraintLeft_toRightOf="@id/glVForty"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilCustomerName"
+        app:startIconDrawable="@drawable/ic_user_name_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tietCustomerEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvInvoiceNoLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="4dp"
+        android:text="Invoice No: "
+        app:layout_constraintBottom_toTopOf="@id/tilDressCount"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/glVForty"
+        app:layout_constraintTop_toBottomOf="@id/tilCustomerEmail" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilInvoiceNo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:hint="Invoice No."
+        app:errorEnabled="true"
+        app:layout_constraintBottom_toTopOf="@id/tilDressCount"
+        app:layout_constraintLeft_toRightOf="@id/glVForty"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilCustomerEmail"
+        app:startIconDrawable="@drawable/ic_user_name_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tietInvoiceNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvDressCountLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="4dp"
+        android:text="Dress Count: "
+        app:layout_constraintBottom_toTopOf="@id/tilOrderDate"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/glVForty"
+        app:layout_constraintTop_toBottomOf="@id/tilInvoiceNo" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilDressCount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:hint="Dress Count"
+        app:errorEnabled="true"
+        app:layout_constraintBottom_toTopOf="@id/tilOrderDate"
+        app:layout_constraintLeft_toRightOf="@id/glVForty"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilInvoiceNo"
+        app:startIconDrawable="@drawable/ic_user_name_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tietDressCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvOrderDateLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="4dp"
+        android:text="Order Date:"
+        app:layout_constraintBottom_toTopOf="@id/tilDeliveryStatus"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/glVForty"
+        app:layout_constraintTop_toBottomOf="@id/tilDressCount" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilOrderDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:hint="Order Date"
+        app:endIconDrawable="@drawable/ic_edit_24"
+        app:endIconMode="custom"
+        app:errorEnabled="true"
+        app:layout_constraintBottom_toTopOf="@id/tilDeliveryStatus"
+        app:layout_constraintLeft_toRightOf="@id/glVForty"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilDressCount"
+        app:startIconDrawable="@drawable/ic_user_name_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tietOrderDateLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvDeliveryStatusLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="4dp"
+        android:text="Delivery Status:"
+        app:layout_constraintBottom_toTopOf="@id/tilDeliveryDate"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/glVForty"
+        app:layout_constraintTop_toBottomOf="@id/tilOrderDate" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilDeliveryStatus"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:hint="Delivery Status"
+        app:endIconDrawable="@drawable/ic_edit_24"
+        app:endIconMode="password_toggle"
+        app:errorEnabled="true"
+        app:layout_constraintBottom_toTopOf="@id/tilDeliveryDate"
+        app:layout_constraintLeft_toRightOf="@id/glVForty"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilOrderDate"
+        app:startIconDrawable="@drawable/ic_user_name_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tietDeliveryStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvDeliveryDateLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="4dp"
+        android:text="Delivery Date:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/glVForty"
+        app:layout_constraintTop_toBottomOf="@id/tilDeliveryStatus" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilDeliveryDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:hint="Delivery Date"
+        app:endIconDrawable="@drawable/ic_edit_24"
+        app:endIconMode="custom"
+        app:errorEnabled="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/glVForty"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilDeliveryStatus"
+        app:startIconDrawable="@drawable/ic_user_name_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tietDeliveryDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

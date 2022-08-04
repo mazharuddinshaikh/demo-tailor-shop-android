@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--<item
+        android:id="@+id/mSearch"
+        android:icon="@drawable/ic_search_24"
+        android:title="Search"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="ifRoom" />-->
+    <item
+        android:id="@+id/mSortAndFilter"
+        android:icon="@drawable/ic_filter_alt_24"
+        android:title="Sort And Filter"
+        app:showAsAction="never" />
+</menu>
