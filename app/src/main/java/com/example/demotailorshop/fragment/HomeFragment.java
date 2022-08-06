@@ -137,56 +137,11 @@ public class HomeFragment extends Fragment {
                     .addToBackStack("UserHelpFragment")
                     .commit();
         } else {
-            addOptionMenu();
+//            addOptionMenu();
         }
 
         return view;
     }
-
-//    private ApiError getErrorResponse(int statusCode, String responseString) {
-//        JSONObject jObjError = null;
-//        String statusMessage = null;
-//        int httpStatus = 0;
-//        try {
-//            jObjError = new JSONObject(responseString);
-//            statusMessage = jObjError.getString("error");
-//            httpStatus = jObjError.getInt("status");
-//        } catch (JSONException e) {
-//            httpStatus = statusCode;
-//            statusMessage = "Something went wrong";
-//            Log.e(TAG, "Exception while parsing json object");
-//        }
-//        return ApiUtils.getDefaultErrorResponse(httpStatus, statusMessage);
-//    }
-
-//    private String getStatusMessage(int statusCode, String responseString) {
-//        ApiError apiError = getErrorResponse(statusCode, responseString);
-//        return apiError.getMessage();
-//    }
-
-//    private ApiResponse<String> getErrorResponse(int httpStatus, String statusMessage) {
-//        ApiResponse<String> apiResponse = new ApiResponse<>();
-//        apiResponse.setHttpStatus(httpStatus);
-//        apiResponse.setMessage(statusMessage);
-//        return apiResponse;
-//    }
-
-//    private ApiResponse<String> getParsedObject(int httpStatus, Response<ApiResponse<List<DressType>>> responseBody) {
-//        String statusMessage = null;
-//        ApiResponse<String> apiResponse = null;
-//        ObjectMapper objectMapper = new ObjectMapper();
-//        try {
-//            if (responseBody.errorBody() != null) {
-//                apiResponse = objectMapper.readValue(responseBody.errorBody().string(), new TypeReference<ApiResponse<String>>() {
-//                });
-//            }
-//        } catch (IOException e) {
-//            statusMessage = "Unauthorized Access";
-//            apiResponse = getErrorResponse(httpStatus, statusMessage);
-//            Log.e(TAG, "Exception while parsing json object");
-//        }
-//        return apiResponse;
-//    }
 
     @Override
     public void onDestroyView() {

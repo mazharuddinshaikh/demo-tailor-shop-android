@@ -53,7 +53,10 @@ public class DressListViewModel extends ViewModel {
         if (dressListMutableLiveData == null) {
             dressListMutableLiveData = new MutableLiveData<>();
         }
-        setDressList(user, dressTypeList);
+        List<Dress> dressList = dressListMutableLiveData.getValue();
+        if (DtsUtils.isNullOrEmpty(dressList)) {
+            setDressList(user, dressTypeList);
+        }
 
         return dressListMutableLiveData;
     }
@@ -136,30 +139,6 @@ public class DressListViewModel extends ViewModel {
             }
         });
     }
-
-//    private ApiResponse<String> getErrorResponse(int httpStatus, String statusMessage) {
-//        ApiResponse<String> apiResponse = new ApiResponse<>();
-//        apiResponse.setHttpStatus(httpStatus);
-//        apiResponse.setMessage(statusMessage);
-//        return apiResponse;
-//    }
-
-//    private ApiResponse<String> getParsedObject(int httpStatus, Response<ApiResponse<List<Dress>>> responseBody) {
-//        String statusMessage = null;
-//        ApiResponse<String> apiResponse = null;
-//        ObjectMapper objectMapper = new ObjectMapper();
-//        try {
-//            if (responseBody.errorBody() != null) {
-//                apiResponse = objectMapper.readValue(responseBody.errorBody().string(), new TypeReference<ApiResponse<String>>() {
-//                });
-//            }
-//        } catch (IOException e) {
-//            statusMessage = "Unauthorized Access";
-//            apiResponse = getErrorResponse(httpStatus, statusMessage);
-//            Log.e(TAG, "Exception while parsing json object");
-//        }
-//        return apiResponse;
-//    }
 
     public void addDress(Dress dress) {
         List<Dress> dressList = dressListMutableLiveData.getValue();
