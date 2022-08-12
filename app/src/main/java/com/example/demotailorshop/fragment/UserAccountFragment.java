@@ -64,7 +64,7 @@ public class UserAccountFragment extends Fragment {
             startActivity(intent);
         }
         View view = binding.getRoot();
-        final List<String> optionsList = Arrays.asList("Update User", "Update Shop Details", "Update Password", "Add / Update Dress Types", "Logout");
+        final List<String> optionsList = Arrays.asList("Update User", "Update Shop Details", "Update Password", "Add / Update Dress Types", "How to use app", "Logout");
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         UserAccountAdapter adapter = new UserAccountAdapter();
@@ -110,6 +110,14 @@ public class UserAccountFragment extends Fragment {
 
                 break;
             case 4:
+//               Open app guide
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                        .setReorderingAllowed(true)
+                        .replace(R.id.fcvContainer, AppGuideFragment.class, null, "AppGuideFragment")
+                        .addToBackStack("AppGuideFragment")
+                        .commit();
+                break;
+            case 5:
 //                Logout
                 DtsSharedPreferenceUtil.getInstance().clearAllPreferences(requireActivity());
                 Intent intent = new Intent(requireActivity(), MainActivity.class);
