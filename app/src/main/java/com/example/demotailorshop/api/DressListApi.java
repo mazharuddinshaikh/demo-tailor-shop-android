@@ -32,14 +32,14 @@ public interface DressListApi {
                                                @Path(value = "userId") Integer userId, @Path(value = "offset") Integer offset,
                                                @Path(value = "limit") Integer limit, @Query(value = "dressType") List<String> dressTypes);
 
-    @GET(value = "api/dress/v1/allDress/dressDetail/{userId}/{customerId}")
+    @GET(value = "api/dress/v1/dressDetail/{userId}/{customerId}")
     Call<ApiResponse<DressDetail>> getDressDetails(@HeaderMap Map<String, String> headers, @Path(value = "userId") Integer userId, @Path("customerId") int customerId);
 
-    @POST(value = "api/dress/v1/allDress/updateDress/{userId}")
+    @POST(value = "api/dress/v1/updateDress/{userId}")
     Call<ApiResponse<DressDetail>> updateDressDetail(@HeaderMap Map<String, String> headers, @Path(value = "userId") Integer userId, @Body DressDetail dressDetail);
 
     @Multipart
-    @POST(value = "api/dress/v1/allDress/updateDress/updateImages/{userId}/{customerId}")
+    @POST(value = "api/dress/v1/updateDress/updateImages/{userId}/{customerId}")
     Call<ApiResponse<DressDetail>> updateDressImagesNew(@HeaderMap Map<String, String> headers,
                                                         @Path(value = "userId") Integer userId, @Path(value = "customerId") Integer customerId, @Part List<MultipartBody.Part> files);
 }

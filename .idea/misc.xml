@@ -3,6 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/mazhar/workspace/practice/android/practice/demo-tailor-shop-android/app/src/main/res/drawable/dress_detail_background.xml" value="0.1125" />
+        <entry key="..\:/mazhar/workspace/practice/android/practice/demo-tailor-shop-android/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/mazhar/workspace/practice/android/practice/demo-tailor-shop-android/app/src/main/res/layout/fragment_app_guide.xml" value="0.1" />
+        <entry key="..\:/mazhar/workspace/practice/android/practice/demo-tailor-shop-android/app/src/main/res/layout/fragment_dress_list.xml" value="0.1" />
+        <entry key="..\:/mazhar/workspace/practice/android/practice/demo-tailor-shop-android/app/src/main/res/layout/fragment_signup.xml" value="0.1" />
+        <entry key="..\:/mazhar/workspace/practice/android/practice/demo-tailor-shop-android/app/src/main/res/layout/fragment_update_password.xml" value="0.1" />
+        <entry key="..\:/mazhar/workspace/practice/android/practice/demo-tailor-shop-android/app/src/main/res/layout/item_app_guide_list.xml" value="0.1" />
+        <entry key="..\:/mazhar/workspace/practice/android/practice/demo-tailor-shop-android/app/src/main/res/layout/item_app_guide_step_image.xml" value="0.1" />
+        <entry key="..\:/mazhar/workspace/practice/android/practice/demo-tailor-shop-android/app/src/main/res/layout/item_app_guide_step_list.xml" value="0.1" />
+        <entry key="..\:/mazhar/workspace/practice/android/practice/demo-tailor-shop-android/app/src/main/res/layout/item_customer_detail.xml" value="0.1" />
+        <entry key="..\:/mazhar/workspace/practice/android/practice/demo-tailor-shop-android/app/src/main/res/layout/item_customer_dress_detail.xml" value="0.1" />
+        <entry key="..\:/mazhar/workspace/practice/android/practice/demo-tailor-shop-android/app/src/main/res/layout/item_dress_list.xml" value="0.1" />
+        <entry key="..\:/mazhar/workspace/practice/android/practice/demo-tailor-shop-android/app/src/main/res/layout/item_dress_list_item.xml" value="0.1" />
         <entry key="..\:/mazhar/workspace/practice/android/practice/demo-tailor-shop/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1125" />
         <entry key="..\:/mazhar/workspace/practice/android/practice/demo-tailor-shop/app/src/main/res/drawable/bg_gradient.xml" value="0.2203125" />
         <entry key="..\:/mazhar/workspace/practice/android/practice/demo-tailor-shop/app/src/main/res/drawable/dress_detail_background.xml" value="0.11197916666666667" />

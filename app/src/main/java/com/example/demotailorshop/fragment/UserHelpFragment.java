@@ -52,7 +52,11 @@ public class UserHelpFragment extends Fragment {
         binding.btnAppGuide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                        .setReorderingAllowed(true)
+                        .replace(R.id.fcvContainer, AppGuideFragment.class, null, "AppGuideFragment")
+                        .addToBackStack("AppGuideFragment")
+                        .commit();
             }
         });
         binding.btnSignup.setOnClickListener(new View.OnClickListener() {
