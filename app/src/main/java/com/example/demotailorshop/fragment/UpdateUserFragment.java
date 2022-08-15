@@ -69,7 +69,6 @@ public class UpdateUserFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        final UserApi userApi = DtsApiFactory.getRetrofitInstance().create(UserApi.class);
         binding = FragmentUpdateUserBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         addListenerForNavigation();
@@ -156,7 +155,7 @@ public class UpdateUserFragment extends Fragment {
                     updateUser.setUserName(userName);
                     updateUser.setMobileNo(mobileNo);
                     updateUser.setEmail(emailAddress);
-                    showUpdateUserDialog(userApi, updateUser);
+                    showUpdateUserDialog(updateUser);
                 }
 
             }
@@ -171,7 +170,8 @@ public class UpdateUserFragment extends Fragment {
         return view;
     }
 
-    private void showUpdateUserDialog(UserApi userApi, User updateUser) {
+    private void showUpdateUserDialog(User updateUser) {
+        final UserApi userApi = DtsApiFactory.getRetrofitInstance().create(UserApi.class);
         CustomDialogListener listener = new CustomDialogListener() {
             @Override
             public void onPositiveClick() {

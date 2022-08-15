@@ -16,22 +16,22 @@ public interface UserApi {
     Call<User> signin(@Field("userName") String userName, @Field("password") String password);
 
     @FormUrlEncoded
-    @POST("/api/user/v1/forgotPassword")
+    @POST("api/user/v1/forgotPassword")
     Call<ApiResponse<String>> forgotPassword(@Field("userName") String userName,
                                              @Field("email") String email);
 
-    @POST("/api/user/v1/signup")
+    @POST("api/user/v1/signup")
     Call<ApiResponse<User>> signup(@Body User user);
 
     @FormUrlEncoded
-    @POST("/api/user/v1/updatePassword")
+    @POST("api/user/v1/updatePassword")
     Call<ApiResponse<String>> updatePassword(@Field("userName") String userName,
                                              @Field("oldPassword") String oldPassword,
                                               @Field("newPassword") String newPassword);
 
-    @POST("/api/user/v1/updateUser")
+    @POST("api/user/v1/updateUser")
     Call<ApiResponse<User>> updateUser(@Body User user);
 
-    @POST("/api/user/v1/updateShop")
+    @POST("api/user/v1/updateShop")
     Call<ApiResponse<User>> updateShop(@Body User user);
 }

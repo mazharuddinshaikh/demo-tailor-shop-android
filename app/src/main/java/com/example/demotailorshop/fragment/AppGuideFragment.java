@@ -57,6 +57,7 @@ public class AppGuideFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         FragmentAppGuideBinding binding = FragmentAppGuideBinding.inflate(getLayoutInflater());
+        addListenerForNavigation(binding);
         AppGuideViewModel appGuideViewModel = new ViewModelProvider(requireActivity()).get(AppGuideViewModel.class);
         final LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -75,5 +76,14 @@ public class AppGuideFragment extends Fragment {
             }
         });
         return binding.getRoot();
+    }
+
+    private void addListenerForNavigation(FragmentAppGuideBinding binding) {
+        binding.mtbToolBar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                requireActivity().getSupportFragmentManager().popBackStack();
+            }
+        });
     }
 }
