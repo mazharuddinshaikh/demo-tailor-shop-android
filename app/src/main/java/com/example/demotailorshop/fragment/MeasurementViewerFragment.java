@@ -63,28 +63,28 @@ public class MeasurementViewerFragment extends Fragment {
 
                 if (!DtsUtils.isNullOrEmpty(imageUrlList) && position < imageUrlList.size() && DtsUtils.isNullOrEmpty(imageUriList)) {
                     Glide.with(requireActivity()).load(imageUrlList.get(position))
-                            .fallback(R.drawable.ic_no_photography_24)
-                            .error(R.drawable.pant)
+                            .fallback(R.drawable.ic_no_image)
+                            .error(R.drawable.ic_error_image)
                             .into(binding.pzivMeasurement);
 
                 } else if (!DtsUtils.isNullOrEmpty(imageUriList) && position < imageUriList.size() && DtsUtils.isNullOrEmpty(imageUrlList)) {
                     Glide.with(requireActivity()).load(imageUriList.get(position))
-                            .fallback(R.drawable.ic_no_photography_24)
-                            .error(R.drawable.pant)
+                            .fallback(R.drawable.ic_no_image)
+                            .error(R.drawable.ic_error_image)
                             .into(binding.pzivMeasurement);
 
                 } else if (!DtsUtils.isNullOrEmpty(imageUrlList) && !DtsUtils.isNullOrEmpty(imageUriList)) {
                     if (position < imageUrlList.size()) {
                         Glide.with(requireActivity()).load(imageUrlList.get(position))
-                                .fallback(R.drawable.ic_no_photography_24)
-                                .error(R.drawable.pant)
+                                .fallback(R.drawable.ic_no_image)
+                                .error(R.drawable.ic_error_image)
                                 .into(binding.pzivMeasurement);
 
                     } else {
                         int uriPosition = position - imageUrlList.size();
                         Glide.with(requireActivity()).load(imageUriList.get(uriPosition))
-                                .fallback(R.drawable.ic_no_photography_24)
-                                .error(R.drawable.pant)
+                                .fallback(R.drawable.ic_no_image)
+                                .error(R.drawable.ic_error_image)
                                 .into(binding.pzivMeasurement);
 
                     }

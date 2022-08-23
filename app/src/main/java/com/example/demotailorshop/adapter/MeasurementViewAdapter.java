@@ -65,28 +65,28 @@ public class MeasurementViewAdapter extends RecyclerView.Adapter<MeasurementView
 
         if (!DtsUtils.isNullOrEmpty(imageUrlList) && adapterPosition < imageUrlList.size() && DtsUtils.isNullOrEmpty(imageUriList)) {
             Glide.with(this.context).load(imageUrlList.get(adapterPosition))
-                    .fallback(R.drawable.ic_no_photography_24)
-                    .error(R.drawable.pant)
+                    .fallback(R.drawable.ic_no_image)
+                    .error(R.drawable.ic_error_image)
                     .into(binding.cddlMeasurement);
 
         } else if (!DtsUtils.isNullOrEmpty(imageUriList) && adapterPosition < imageUriList.size() && DtsUtils.isNullOrEmpty(imageUrlList)) {
             Glide.with(this.context).load(imageUriList.get(adapterPosition))
-                    .fallback(R.drawable.ic_no_photography_24)
-                    .error(R.drawable.pant)
+                    .fallback(R.drawable.ic_no_image)
+                    .error(R.drawable.ic_error_image)
                     .into(binding.cddlMeasurement);
 
         } else if (!DtsUtils.isNullOrEmpty(imageUrlList) && !DtsUtils.isNullOrEmpty(imageUriList)) {
             if (position < imageUrlList.size()) {
                 Glide.with(this.context).load(imageUrlList.get(adapterPosition))
-                        .fallback(R.drawable.ic_no_photography_24)
-                        .error(R.drawable.pant)
+                        .fallback(R.drawable.ic_no_image)
+                        .error(R.drawable.ic_error_image)
                         .into(binding.cddlMeasurement);
 
             } else {
                 int uriPosition = adapterPosition - imageUrlList.size();
                 Glide.with(this.context).load(imageUriList.get(uriPosition))
-                        .fallback(R.drawable.ic_no_photography_24)
-                        .error(R.drawable.pant)
+                        .fallback(R.drawable.ic_no_image)
+                        .error(R.drawable.ic_error_image)
                         .into(binding.cddlMeasurement);
 
             }

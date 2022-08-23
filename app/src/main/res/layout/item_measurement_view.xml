@@ -15,6 +15,6 @@
     <com.example.demotailorshop.view.custom.CustomDressDetailImageView
         android:id="@+id/cddlMeasurement"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:src="@drawable/pathani" />
+        android:layout_height="match_parent"
+        tools:src="@drawable/ic_no_image" />
 </com.google.android.material.card.MaterialCardView>

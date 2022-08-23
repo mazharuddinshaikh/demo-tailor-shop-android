@@ -77,8 +77,8 @@ public class ImageListAdapter extends RecyclerView.Adapter<ImageListAdapter.Imag
                 || (!DtsUtils.isNullOrEmpty(uriList) && position >= uriList.size() && DtsUtils.isNullOrEmpty(imageList))
                 || (!DtsUtils.isNullOrEmpty(imageList) && !DtsUtils.isNullOrEmpty(uriList) && position >= imageList.size() + uriList.size())) {
             Glide.with(this.context).load(R.drawable.ic_add_24)
-                    .fallback(R.drawable.ic_no_photography_24)
-                    .error(R.drawable.pant)
+                    .fallback(R.drawable.ic_no_image)
+                    .error(R.drawable.ic_error_image)
                     .into(binding.cddlDress);
             binding.getRoot().setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -90,8 +90,8 @@ public class ImageListAdapter extends RecyclerView.Adapter<ImageListAdapter.Imag
         } else {
             if (!DtsUtils.isNullOrEmpty(imageList) && position < imageList.size() && DtsUtils.isNullOrEmpty(uriList)) {
                 Glide.with(this.context).load(imageList.get(position))
-                        .fallback(R.drawable.ic_no_photography_24)
-                        .error(R.drawable.pant)
+                        .fallback(R.drawable.ic_no_image)
+                        .error(R.drawable.ic_error_image)
                         .into(binding.cddlDress);
                 binding.getRoot().setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -102,8 +102,8 @@ public class ImageListAdapter extends RecyclerView.Adapter<ImageListAdapter.Imag
                 });
             } else if (!DtsUtils.isNullOrEmpty(uriList) && position < uriList.size() && DtsUtils.isNullOrEmpty(imageList)) {
                 Glide.with(this.context).load(uriList.get(position))
-                        .fallback(R.drawable.ic_no_photography_24)
-                        .error(R.drawable.pant)
+                        .fallback(R.drawable.ic_no_image)
+                        .error(R.drawable.ic_error_image)
                         .into(binding.cddlDress);
                 binding.getRoot().setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -115,8 +115,8 @@ public class ImageListAdapter extends RecyclerView.Adapter<ImageListAdapter.Imag
             } else if (!DtsUtils.isNullOrEmpty(imageList) && !DtsUtils.isNullOrEmpty(uriList)) {
                 if (position < imageList.size()) {
                     Glide.with(this.context).load(imageList.get(position))
-                            .fallback(R.drawable.ic_no_photography_24)
-                            .error(R.drawable.pant)
+                            .fallback(R.drawable.ic_no_image)
+                            .error(R.drawable.ic_error_image)
                             .into(binding.cddlDress);
                     binding.getRoot().setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -128,8 +128,8 @@ public class ImageListAdapter extends RecyclerView.Adapter<ImageListAdapter.Imag
                 } else {
                     int uriPosition = position - imageList.size();
                     Glide.with(this.context).load(uriList.get(uriPosition))
-                            .fallback(R.drawable.ic_no_photography_24)
-                            .error(R.drawable.pant)
+                            .fallback(R.drawable.ic_no_image)
+                            .error(R.drawable.ic_error_image)
                             .into(binding.cddlDress);
                     binding.getRoot().setOnClickListener(new View.OnClickListener() {
                         @Override

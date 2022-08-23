@@ -59,8 +59,8 @@ public class DressListItemAdapter extends RecyclerView.Adapter<DressListItemAdap
         binding.getRoot().getLayoutParams().height = this.displayWidth / 2;
         if (!DtsUtils.isNullOrEmpty(imageList)) {
             Glide.with(this.context).load(imageList.get(position))
-                    .fallback(R.drawable.ic_no_photography_24)
-                    .error(R.drawable.pant)
+                    .fallback(R.drawable.ic_no_image)
+                    .error(R.drawable.ic_error_image)
                     .into(binding.getRoot());
         }
         binding.getRoot().setOnClickListener(new View.OnClickListener() {

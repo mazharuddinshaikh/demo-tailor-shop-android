@@ -3,6 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:src="@drawable/pathani">
+    tools:src="@drawable/ic_no_image">
 
 </com.example.demotailorshop.view.custom.CustomDressDetailImageView>

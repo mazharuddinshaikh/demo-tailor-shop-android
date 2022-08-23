@@ -84,6 +84,7 @@ public class DressListViewModel extends ViewModel {
     }
 
     public void addDressList(User user, List<String> dressTypeList) {
+        apiErrorMutableLiveData.setValue(null);
         String authenticationToken = user.getAuthenticationToken();
         Map<String, String> headersMap = new HashMap<>();
         headersMap.put(DtsSharedPreferenceUtil.KEY_AUTHORIZATION, authenticationToken);
@@ -105,14 +106,17 @@ public class DressListViewModel extends ViewModel {
                     }
                     Log.v(TAG, statusMessage);
                 } else if (httpStatus == 204) {
+                    decreaseOffset();
                     statusMessage = "No Dress Found";
                     apiError = ApiUtils.getDefaultErrorResponse(httpStatus, statusMessage);
                     Log.v(TAG, statusMessage);
                 } else if (httpStatus == 401) {
+                    decreaseOffset();
                     apiError = ApiUtils.getApiErrorResponse(response);
                     statusMessage = apiError.getMessage();
                     Log.v(TAG, statusMessage);
                 } else {
+                    decreaseOffset();
                     String responseString = null;
                     try {
                         responseString = response.errorBody().string();
@@ -125,6 +129,7 @@ public class DressListViewModel extends ViewModel {
                 }
                 if (!DtsUtils.isNullOrEmpty(dressList)) {
                     dressList.remove(null);
+
                 }
                 dressListMutableLiveData.setValue(dressList);
                 apiErrorMutableLiveData.setValue(apiError);
@@ -132,10 +137,20 @@ public class DressListViewModel extends ViewModel {
 
             @Override
             public void onFailure(@NonNull Call<ApiResponse<List<Dress>>> call, @NonNull Throwable t) {
+                decreaseOffset();
                 Log.e(TAG, "Api-Error " + t.fillInStackTrace());
                 ApiError apiError = ApiUtils.getDefaultErrorResponse(0, "Something went wrong");
-                dressListMutableLiveData.setValue(null);
-                apiErrorMutableLiveData.setValue(apiError);
+                List<Dress> dressList = dressListMutableLiveData.getValue();
+                if (DtsUtils.isNullOrEmpty(dressList) || (!DtsUtils.isNullOrEmpty(dressList) && dressList.size() == 1 && dressList.get(0) == null)) {
+                    dressListMutableLiveData.setValue(null);
+                    apiErrorMutableLiveData.setValue(apiError);
+                } else {
+                    dressList.remove(null);
+                    dressList.add(null);
+                    dressListMutableLiveData.setValue(dressList);
+                    apiErrorMutableLiveData.setValue(apiError);
+
+                }
             }
         });
     }
@@ -156,6 +171,12 @@ public class DressListViewModel extends ViewModel {
         if (!DtsUtils.isNullOrEmpty(dressList)) {
             dressList.remove(dress);
             dressListMutableLiveData.setValue(dressList);
+        }
+    }
+
+    private void decreaseOffset() {
+        if (this.offset != 0) {
+            this.offset--;
         }
     }
 }

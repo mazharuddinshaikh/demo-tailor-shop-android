@@ -536,7 +536,8 @@ public class DressDetailFragment extends Fragment {
         LayoutSelectMeasurementBinding dialogBinding = LayoutSelectMeasurementBinding.inflate(getLayoutInflater());
         builder.setView(dialogBinding.getRoot());
         Glide.with(requireActivity()).load(R.drawable.ic_camera_24)
-                .fallback(R.drawable.ic_no_photography_24)
+                .fallback(R.drawable.ic_no_image)
+                .error(R.drawable.ic_error_image)
                 .into(dialogBinding.cdliGallery);
         AlertDialog selectMeasurementDialog = builder.create();
         dialogBinding.cdliGallery.setOnClickListener(new View.OnClickListener() {

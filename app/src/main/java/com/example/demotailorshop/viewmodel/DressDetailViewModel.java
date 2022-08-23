@@ -9,11 +9,13 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.demotailorshop.api.DressListApi;
 import com.example.demotailorshop.api.DtsApiFactory;
+import com.example.demotailorshop.entity.ApiError;
 import com.example.demotailorshop.entity.ApiResponse;
 import com.example.demotailorshop.entity.Dress;
 import com.example.demotailorshop.entity.DressDetail;
 import com.example.demotailorshop.entity.Measurement;
 import com.example.demotailorshop.entity.User;
+import com.example.demotailorshop.utils.ApiUtils;
 import com.example.demotailorshop.utils.DtsSharedPreferenceUtil;
 import com.example.demotailorshop.utils.DtsUtils;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -35,7 +37,7 @@ import retrofit2.Response;
 public class DressDetailViewModel extends ViewModel {
     private static final String TAG = "DressDetailViewModel";
     private MutableLiveData<DressDetail> dressDetailMutableLiveData;
-    private MutableLiveData<ApiResponse<String>> apiErrorMutableLiveData;
+    private MutableLiveData<ApiError> apiErrorMutableLiveData;
     private int dressId;
     private String type;
 
@@ -81,7 +83,7 @@ public class DressDetailViewModel extends ViewModel {
             @Override
             public void onResponse(@NonNull Call<ApiResponse<DressDetail>> call, @NonNull Response<ApiResponse<DressDetail>> response) {
                 DressDetail dressDetail = null;
-                ApiResponse<String> apiError = null;
+                ApiError apiError = null;
                 int httpStatus = response.code();
                 String statusMessage = null;
                 if (httpStatus == 200) {
@@ -93,24 +95,21 @@ public class DressDetailViewModel extends ViewModel {
                     Log.v(TAG, statusMessage);
                 } else if (httpStatus == 204) {
                     statusMessage = "No Dress details Found";
-                    apiError = getErrorResponse(httpStatus, statusMessage);
+                    apiError = ApiUtils.getDefaultErrorResponse(httpStatus, statusMessage);
                     Log.v(TAG, statusMessage);
                 } else if (httpStatus == 401) {
-                    apiError = getParsedObject(httpStatus, response);
+                    apiError = ApiUtils.getApiErrorResponse(response);
                     statusMessage = apiError.getMessage();
                     Log.v(TAG, statusMessage);
                 } else {
+                    String responseString = null;
                     try {
-                        if (response.errorBody() != null) {
-                            JSONObject jObjError = new JSONObject(response.errorBody().string());
-                            statusMessage = jObjError.getString("error");
-                            httpStatus = jObjError.getInt("status");
-                        }
-                    } catch (IOException | JSONException e) {
-                        statusMessage = "Something went wrong";
-                        Log.e(TAG, "Exception while parsing json object");
+                        responseString = response.errorBody().string();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
-                    apiError = getErrorResponse(httpStatus, statusMessage);
+                    apiError = ApiUtils.getDefaultErrorResponse(responseString);
+                    statusMessage = apiError.getMessage();
                     Log.v(TAG, statusMessage);
                 }
                 dressDetailMutableLiveData.setValue(dressDetail);
@@ -120,7 +119,7 @@ public class DressDetailViewModel extends ViewModel {
             @Override
             public void onFailure(@NonNull Call<ApiResponse<DressDetail>> call, @NonNull Throwable t) {
                 Log.e(TAG, "Api-Error " + t.fillInStackTrace());
-                ApiResponse<String> apiError = getErrorResponse(0, "Something went wrong");
+                ApiError apiError = ApiUtils.getDefaultErrorResponse(0, "Something went wrong");
                 dressDetailMutableLiveData.setValue(null);
                 apiErrorMutableLiveData.setValue(apiError);
             }

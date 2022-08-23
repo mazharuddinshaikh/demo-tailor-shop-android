@@ -23,7 +23,7 @@
                 android:layout_height="?attr/actionBarSize"
                 android:background="@color/primaryColor"
                 app:layout_scrollFlags="scroll|enterAlways|snap"
-                app:navigationIcon="@drawable/ic_close_24"
+                app:navigationIcon="@drawable/ic_arrow_back_24"
                 app:title="App Guide"
                 app:titleCentered="true" />
 

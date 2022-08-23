@@ -141,6 +141,7 @@ public class DressListFragment extends Fragment {
                     Log.v(TAG, "Scroll reach at last");
                     dressListViewModel.addDress(null);
                     dressListViewModel.addDressList(user, dressTypeList);
+
                 }
             }
         });

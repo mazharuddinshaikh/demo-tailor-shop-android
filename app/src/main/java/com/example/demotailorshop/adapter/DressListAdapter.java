@@ -86,16 +86,11 @@ public class DressListAdapter extends RecyclerView.Adapter {
 //        dress list not empty and current position object not null then show dress
         if (!DtsUtils.isNullOrEmpty(dressList) && position == 0 && dressList.get(0) == null) {
             viewType = VIEW_TYPE_NO_DRESS_LIST;
-        } else if (!DtsUtils.isNullOrEmpty(dressList) && position != 0 && dressList.get(position) == null) {
+        } else if ((!DtsUtils.isNullOrEmpty(dressList) && position != 0 && dressList.get(position) == null)) {
             viewType = VIEW_TYPE_DRESS_LIST_LOADING;
         } else if (!DtsUtils.isNullOrEmpty(dressList)) {
             viewType = VIEW_TYPE_DRESS_LIST;
         }
-
-        if (DtsUtils.isNullOrEmpty(dressList)) {
-//            no dress found
-        }
-
 
         return viewType;
     }
@@ -181,7 +176,15 @@ public class DressListAdapter extends RecyclerView.Adapter {
                 }
                 break;
             case VIEW_TYPE_DRESS_LIST_LOADING:
-
+                String loadingMessage = null;
+                DressLoadingViewHolder dressLoadingViewHolder = (DressLoadingViewHolder) holder;
+                ItemDressListLoadingBinding dressListLoadingBinding = dressLoadingViewHolder.getBinding();
+                if (apiError != null) {
+                    loadingMessage = apiError.getMessage();
+                } else {
+                    loadingMessage = "Loading";
+                }
+                dressListLoadingBinding.getRoot().setText(loadingMessage);
                 break;
         }
     }

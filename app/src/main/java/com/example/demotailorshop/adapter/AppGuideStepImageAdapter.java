@@ -42,8 +42,8 @@ public class AppGuideStepImageAdapter extends RecyclerView.Adapter<AppGuideStepI
         final String stepImage = stepImageList.get(position);
         if (!DtsUtils.isNullOrEmpty(stepImage)) {
             Glide.with(this.context).load(stepImage)
-                    .fallback(R.drawable.ic_no_photography_24)
-                    .error(R.drawable.pant)
+                    .fallback(R.drawable.ic_no_image)
+                    .error(R.drawable.ic_error_image)
                     .into(binding.cdliStep);
         }
     }

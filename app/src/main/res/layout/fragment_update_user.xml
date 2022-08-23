@@ -24,7 +24,7 @@
                 android:background="@color/primaryColor"
                 app:layout_scrollFlags="scroll|enterAlways|snap"
                 app:titleCentered="true"
-                app:navigationIcon="@drawable/ic_close_24"/>
+                app:navigationIcon="@drawable/ic_arrow_back_24"/>
 
         </com.google.android.material.appbar.AppBarLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
