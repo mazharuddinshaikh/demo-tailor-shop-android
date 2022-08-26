@@ -189,8 +189,7 @@ public class SignupFragment extends Fragment {
 //                redirect to home page
                                 requireActivity().getSupportFragmentManager().beginTransaction()
                                         .setReorderingAllowed(true)
-                                        .replace(R.id.fcvContainer, HomeFragment.class, null, "HomeFragment")
-
+                                        .replace(R.id.fcvContainer, UserHelpFragment.class, null, "UserHelpFragment")
                                         .commit();
                             } else if (httpStatus == ApiUtils.BAD_REQUEST) {
                                 Log.i(TAG, "Validation missed");

@@ -53,10 +53,10 @@ public class DressListViewModel extends ViewModel {
         if (dressListMutableLiveData == null) {
             dressListMutableLiveData = new MutableLiveData<>();
         }
-        List<Dress> dressList = dressListMutableLiveData.getValue();
-        if (DtsUtils.isNullOrEmpty(dressList)) {
+//        List<Dress> dressList = dressListMutableLiveData.getValue();
+//        if (DtsUtils.isNullOrEmpty(dressList)) {
             setDressList(user, dressTypeList);
-        }
+//        }
 
         return dressListMutableLiveData;
     }

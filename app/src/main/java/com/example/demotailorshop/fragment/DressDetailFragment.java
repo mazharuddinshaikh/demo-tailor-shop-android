@@ -112,7 +112,7 @@ public class DressDetailFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        fileMap = new HashMap<>();
+//        fileMap = new HashMap<>();
         FragmentDressDetailBinding binding = FragmentDressDetailBinding.inflate(getLayoutInflater());
         List<DressType> dressTypeList = DtsSharedPreferenceUtil.getInstance().getDressTypesFromSharedPref(requireActivity(), DtsSharedPreferenceUtil.KEY_DRESS_TYPES);
         storagePermissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), new ActivityResultCallback<Map<String, Boolean>>() {
@@ -494,12 +494,16 @@ public class DressDetailFragment extends Fragment {
                     Uri uri = intent.getData();
                     List<Uri> uriList = new ArrayList<>();
                     uriList.add(uri);
+                    dressDetailViewModel.setDressDetail(dressDetail);
                     dressDetailViewModel.updateUriMap(uriList);
                     File uploadFile = new File(UriUtils.getPathFromUri(requireActivity(), uri));
                     int i = 1;
                     String fileName = "D_" + dressDetailViewModel.getDressId() + "_" + dressDetailViewModel.getType() + "_" + i + "." + uploadFile.getName().substring(uploadFile.getName().lastIndexOf(".") + 1);
                     boolean isPresent = false;
                     do {
+                        if(DtsUtils.isNullOrEmpty(fileMap)){
+                            fileMap = new HashMap<>();
+                        }
                         File tempFile = fileMap.get(fileName);
                         if (tempFile != null) {
                             isPresent = true;

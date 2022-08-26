@@ -111,7 +111,7 @@ public class DressListFragment extends Fragment {
         binding.rvDressList.setAdapter(dressListAdapter);
         dressListViewModel = new ViewModelProvider(requireActivity())
                 .get(DressListViewModel.class);
-        dressListViewModel.setLimit(3);
+        dressListViewModel.setLimit(5);
         dressListViewModel.setOffset(0);
 
         loadDress(user, dressTypeList, dressListAdapter);
