@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "978134027029",
+    "project_id": "digi-tailors",
+    "storage_bucket": "digi-tailors.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:978134027029:android:543c366661ce26a59b771c",
+        "android_client_info": {
+          "package_name": "com.demotailorshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "978134027029-r6nos50tjq4ah8g7b24b0367skljug5g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCp7iwWxxqpnMKZQFL3XamlN-DiBeaYBiE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "978134027029-r6nos50tjq4ah8g7b24b0367skljug5g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
