@@ -8,4 +8,5 @@
     <string name="addDress">Add Dress</string>
     <string name="dresses">Dresses</string>
     <string name="profile">Profile</string>
+    <string name="app_update_title">New Version Is Available!</string>
 </resources>
