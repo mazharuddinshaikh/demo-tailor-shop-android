@@ -77,6 +77,7 @@ public class UserHelpFragment extends Fragment {
                         .commit();
             }
         });
+
         return view;
     }
 
