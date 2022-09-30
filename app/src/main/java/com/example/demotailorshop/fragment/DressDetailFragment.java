@@ -52,9 +52,6 @@ import com.example.demotailorshop.viewmodel.DressDetailViewModel;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -62,6 +59,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 import okhttp3.MediaType;
@@ -218,6 +216,29 @@ public class DressDetailFragment extends Fragment {
                 }
                 Log.v(TAG, "Calling toi customer");
             }
+
+            @Override
+            public void onDeleteMeasurement(int dressId, String measurementType, Uri uri) {
+                List<Uri> uriList = getUriListByDressIdAndMeasurementType(dressId, measurementType);
+                if (!DtsUtils.isNullOrEmpty(uriList)) {
+                    uriList.remove(uri);
+                    dressDetailViewModel.addMeasurement(dressId, measurementType);
+                    dressDetailViewModel.updateUriMap(uriList);
+                    File file = null;
+                    file = new File(Objects.requireNonNull(UriUtils.getPathFromUri(requireActivity(), uri)));
+                    String uriKey = null;
+                    if (!DtsUtils.isNullOrEmpty(fileMap)) {
+                        for (String key : fileMap.keySet()) {
+                            if (file.equals(fileMap.get(key))) {
+                                uriKey = key;
+                            }
+                        }
+                        if (!DtsUtils.isNullOrEmpty(uriKey)) {
+                            fileMap.remove(uriKey);
+                        }
+                    }
+                }
+            }
         });
         customerDressDetailAdapter.setDressDetailListener(new DressDetailListener() {
             @Override
@@ -281,6 +302,23 @@ public class DressDetailFragment extends Fragment {
         });
 
         return view;
+    }
+
+    private List<Uri> getUriListByDressIdAndMeasurementType(int dressId, String measurementType) {
+        List<Uri> uriList = null;
+        Map<String, List<Uri>> uriMap = null;
+        Dress requiredDress = dressDetailViewModel.getDress(dressDetail, dressId);
+        Measurement measurement = null;
+        if (requiredDress != null) {
+            measurement = requiredDress.getMeasurement();
+        }
+        if (measurement != null) {
+            uriMap = measurement.getUriMap();
+        }
+        if (!DtsUtils.isNullOrEmpty(uriMap)) {
+            uriList = uriMap.get(measurementType);
+        }
+        return uriList;
     }
 
     private void showUpdateDressDetailDialog(FragmentDressDetailBinding binding, User user, DressListApi dressListApi) {
@@ -501,7 +539,7 @@ public class DressDetailFragment extends Fragment {
                     String fileName = "D_" + dressDetailViewModel.getDressId() + "_" + dressDetailViewModel.getType() + "_" + i + "." + uploadFile.getName().substring(uploadFile.getName().lastIndexOf(".") + 1);
                     boolean isPresent = false;
                     do {
-                        if(DtsUtils.isNullOrEmpty(fileMap)){
+                        if (DtsUtils.isNullOrEmpty(fileMap)) {
                             fileMap = new HashMap<>();
                         }
                         File tempFile = fileMap.get(fileName);
