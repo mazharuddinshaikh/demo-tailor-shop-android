@@ -123,7 +123,6 @@ public class DressListAdapter extends RecyclerView.Adapter {
                 DressViewHolder dressViewHolder = (DressViewHolder) holder;
                 Dress dress = dressList.get(position);
                 ItemDressListBinding binding = dressViewHolder.binding;
-
                 binding.tvName.setText(dress.getCustomer().getFirstName());
                 binding.tvInvoiceNo.setText(String.valueOf(dress.getCustomer().getInvoiceId()));
                 binding.tvDeliveryStatus.setText(dress.getDeliveryStatus());
@@ -132,10 +131,10 @@ public class DressListAdapter extends RecyclerView.Adapter {
                 Measurement measurement = dress.getMeasurement();
                 DressListItemAdapter dressListItemAdapter = new DressListItemAdapter();
                 List<String> dressListItemImageList = new ArrayList<>();
-                dressListItemImageList.add(getFirstImage(measurement.getMeasurementImageList()));
-                dressListItemImageList.add(getFirstImage(measurement.getRawDressImageList()));
-                dressListItemImageList.add(getFirstImage(measurement.getPatternImageList()));
-                dressListItemImageList.add(getFirstImage(measurement.getSeavedImageList()));
+                dressListItemImageList.add(getFirstImage(measurement.getMeasurementImage().getMeasurementImageList()));
+                dressListItemImageList.add(getFirstImage(measurement.getMeasurementImage().getRawImageList()));
+                dressListItemImageList.add(getFirstImage(measurement.getMeasurementImage().getPatternImageList()));
+                dressListItemImageList.add(getFirstImage(measurement.getMeasurementImage().getSeavedImageList()));
                 dressListItemAdapter.setContext(this.context);
                 dressListItemAdapter.setDisplayWidth(displayWidth);
                 dressListItemAdapter.setImageList(dressListItemImageList);

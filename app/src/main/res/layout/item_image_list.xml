@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="4dp"
@@ -12,9 +11,25 @@
     app:cardCornerRadius="4dp"
     app:strokeWidth="0dp">
 
-    <com.example.demotailorshop.view.custom.CustomDressDetailImageView
-        android:id="@+id/cddlDress"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/ic_error_image" />
+        android:layout_height="match_parent">
+
+
+        <com.example.demotailorshop.view.custom.CustomDressDetailImageView
+            android:id="@+id/cddlDress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_error_image" />
+
+        <ImageView
+            android:id="@+id/ivDelete"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="top|end"
+            android:background="@drawable/circle_image"
+            android:contentDescription="delete image"
+            android:padding="20dp"
+            android:visibility="gone" />
+    </FrameLayout>
 </com.google.android.material.card.MaterialCardView>

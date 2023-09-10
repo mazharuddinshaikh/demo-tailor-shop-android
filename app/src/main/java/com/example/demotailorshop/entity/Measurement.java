@@ -17,6 +17,7 @@ public class Measurement {
     private String comment;
     private String createdAt;
     private String updatedAt;
+    private MeasurementImage measurementImage;
     @JsonIgnore
     private Map<String, List<Uri>> uriMap;
 
@@ -95,5 +96,55 @@ public class Measurement {
 
     public void setUriMap(Map<String, List<Uri>> uriMap) {
         this.uriMap = uriMap;
+    }
+
+    public MeasurementImage getMeasurementImage() {
+        return measurementImage;
+    }
+
+    public void setMeasurementImage(MeasurementImage measurementImage) {
+        this.measurementImage = measurementImage;
+    }
+
+    public static class MeasurementImage {
+        private List<String> measurementImageList;
+        private List<String> rawImageList;
+        private List<String> patternImageList;
+        private List<String> seavedImageList;
+
+        public MeasurementImage() {
+        }
+
+        public List<String> getMeasurementImageList() {
+            return measurementImageList;
+        }
+
+        public void setMeasurementImageList(List<String> measurementImageList) {
+            this.measurementImageList = measurementImageList;
+        }
+
+        public List<String> getRawImageList() {
+            return rawImageList;
+        }
+
+        public void setRawImageList(List<String> rawImageList) {
+            this.rawImageList = rawImageList;
+        }
+
+        public List<String> getPatternImageList() {
+            return patternImageList;
+        }
+
+        public void setPatternImageList(List<String> patternImageList) {
+            this.patternImageList = patternImageList;
+        }
+
+        public List<String> getSeavedImageList() {
+            return seavedImageList;
+        }
+
+        public void setSeavedImageList(List<String> seavedImageList) {
+            this.seavedImageList = seavedImageList;
+        }
     }
 }

@@ -6,10 +6,18 @@ import com.example.demotailorshop.entity.Customer;
 
 import java.util.List;
 
+@FunctionalInterface
 public interface MeasurementListener {
     void onAddMeasurement(String type, int dressId);
 
-    void showMeasurement(List<String> imageUrlList, List<Uri> uriList, int itemPosition);
+    default void showMeasurement(List<String> imageUrlList, List<Uri> uriList, int itemPosition) {
 
-    void customerCall(Customer customer);
+    }
+
+    default void customerCall(Customer customer) {
+
+    }
+
+    default void onDeleteMeasurement(int dressId, String measurementType, Uri uri) {
+    }
 }

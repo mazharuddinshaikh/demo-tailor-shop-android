@@ -7,7 +7,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
 final public class DtsApiFactory {
-    private static final String TEST_URL = "http://192.168.227.119:8081/digitailors/";
+    private static final String TEST_URL = "http://192.168.121.119:8081/digitailors/";
     private static final String PROD_URL = "http://65.0.224.253:8081/digitailors/";
     private static final String BASE_URL = PROD_URL;
     private static Retrofit retrofit;

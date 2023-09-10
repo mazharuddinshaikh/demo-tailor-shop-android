@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -72,6 +73,7 @@ public class ImageListAdapter extends RecyclerView.Adapter<ImageListAdapter.Imag
         ItemImageListBinding binding = holder.getBinding();
         binding.getRoot().getLayoutParams().width = this.displayWidth / 2;
         binding.getRoot().getLayoutParams().height = this.displayWidth / 2;
+        binding.ivDelete.setVisibility(View.GONE);
         if ((DtsUtils.isNullOrEmpty(imageList) && DtsUtils.isNullOrEmpty(uriList) && position == 0)
                 || (!DtsUtils.isNullOrEmpty(imageList) && position >= imageList.size() && DtsUtils.isNullOrEmpty(uriList))
                 || (!DtsUtils.isNullOrEmpty(uriList) && position >= uriList.size() && DtsUtils.isNullOrEmpty(imageList))
@@ -80,7 +82,7 @@ public class ImageListAdapter extends RecyclerView.Adapter<ImageListAdapter.Imag
                     .fallback(R.drawable.ic_no_image)
                     .error(R.drawable.ic_error_image)
                     .into(binding.cddlDress);
-            binding.getRoot().setOnClickListener(new View.OnClickListener() {
+            binding.cddlDress.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     measurementListener.onAddMeasurement(measurementType, dressId);
@@ -93,7 +95,7 @@ public class ImageListAdapter extends RecyclerView.Adapter<ImageListAdapter.Imag
                         .fallback(R.drawable.ic_no_image)
                         .error(R.drawable.ic_error_image)
                         .into(binding.cddlDress);
-                binding.getRoot().setOnClickListener(new View.OnClickListener() {
+                binding.cddlDress.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 //                        measurementListener.showMeasurementByImage(imageList, position);
@@ -101,15 +103,22 @@ public class ImageListAdapter extends RecyclerView.Adapter<ImageListAdapter.Imag
                     }
                 });
             } else if (!DtsUtils.isNullOrEmpty(uriList) && position < uriList.size() && DtsUtils.isNullOrEmpty(imageList)) {
+                binding.ivDelete.setVisibility(View.VISIBLE);
                 Glide.with(this.context).load(uriList.get(position))
                         .fallback(R.drawable.ic_no_image)
                         .error(R.drawable.ic_error_image)
                         .into(binding.cddlDress);
-                binding.getRoot().setOnClickListener(new View.OnClickListener() {
+                binding.cddlDress.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 //                        measurementListener.showMeasurementByUri(uriList, position);
                         measurementListener.showMeasurement(imageList, uriList, position);
+                    }
+                });
+                binding.ivDelete.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        measurementListener.onDeleteMeasurement(dressId, measurementType, uriList.get(position));
                     }
                 });
             } else if (!DtsUtils.isNullOrEmpty(imageList) && !DtsUtils.isNullOrEmpty(uriList)) {
@@ -118,7 +127,7 @@ public class ImageListAdapter extends RecyclerView.Adapter<ImageListAdapter.Imag
                             .fallback(R.drawable.ic_no_image)
                             .error(R.drawable.ic_error_image)
                             .into(binding.cddlDress);
-                    binding.getRoot().setOnClickListener(new View.OnClickListener() {
+                    binding.cddlDress.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
 //                            measurementListener.showMeasurementByImage(imageList, position);
@@ -126,16 +135,23 @@ public class ImageListAdapter extends RecyclerView.Adapter<ImageListAdapter.Imag
                         }
                     });
                 } else {
+                    binding.ivDelete.setVisibility(View.VISIBLE);
                     int uriPosition = position - imageList.size();
                     Glide.with(this.context).load(uriList.get(uriPosition))
                             .fallback(R.drawable.ic_no_image)
                             .error(R.drawable.ic_error_image)
                             .into(binding.cddlDress);
-                    binding.getRoot().setOnClickListener(new View.OnClickListener() {
+                    binding.cddlDress.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
 //                            measurementListener.showMeasurementByUri(uriList, position);
                             measurementListener.showMeasurement(imageList, uriList, position);
+                        }
+                    });
+                    binding.ivDelete.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            measurementListener.onDeleteMeasurement(dressId, measurementType, uriList.get(uriPosition));
                         }
                     });
                 }

@@ -21,9 +21,6 @@ import com.example.demotailorshop.utils.DtsUtils;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -182,7 +179,12 @@ public class DressDetailViewModel extends ViewModel {
         } else {
             List<Uri> newUriList = new ArrayList<>();
             newUriList.addAll(oldUriList);
-            newUriList.addAll(uriList);
+            for (Uri updatedUri : uriList) {
+                if (!newUriList.contains(updatedUri)) {
+                    newUriList.add(updatedUri);
+                }
+            }
+//            newUriList.addAll(uriList);
             oldUriMap.put(type, newUriList);
         }
         measurement.setUriMap(oldUriMap);
@@ -205,7 +207,7 @@ public class DressDetailViewModel extends ViewModel {
     }
 
 
-    private Dress getDress(DressDetail dressDetail, int dressId) {
+    public Dress getDress(DressDetail dressDetail, int dressId) {
         Dress dress = new Dress();
         if (dressDetail != null) {
             if (!DtsUtils.isNullOrEmpty(dressDetail.getDressList())) {
