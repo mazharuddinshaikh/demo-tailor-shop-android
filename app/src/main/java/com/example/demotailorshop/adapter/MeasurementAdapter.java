@@ -66,7 +66,7 @@ public class MeasurementAdapter extends RecyclerView.Adapter<MeasurementAdapter.
 //            raw
             case 0:
                 binding.tvHeading.setText("Raw Dress Image");
-                imageList = measurement.getRawDressImageList();
+                imageList = measurement.getMeasurementImage().getRawImageList();
                 measurementType = DtsConstants.RAW;
                 List<Uri> rawUriList = null;
                 if (measurementUriMap != null) {
@@ -78,7 +78,7 @@ public class MeasurementAdapter extends RecyclerView.Adapter<MeasurementAdapter.
 //                measurement
             case 1:
                 binding.tvHeading.setText("Measurement Image");
-                imageList = measurement.getMeasurementImageList();
+                imageList = measurement.getMeasurementImage().getMeasurementImageList();
                 measurementType = DtsConstants.MEASUREMENT;
                 List<Uri> measurementUriList = null;
                 if (measurementUriMap != null) {
@@ -90,7 +90,7 @@ public class MeasurementAdapter extends RecyclerView.Adapter<MeasurementAdapter.
 //                pattern
             case 2:
                 binding.tvHeading.setText("Pattern Image");
-                imageList = measurement.getPatternImageList();
+                imageList = measurement.getMeasurementImage().getPatternImageList();
 
                 measurementType = DtsConstants.PATTERN;
                 List<Uri> patternUriList = null;
@@ -103,7 +103,7 @@ public class MeasurementAdapter extends RecyclerView.Adapter<MeasurementAdapter.
 //                seaved
             case 3:
                 binding.tvHeading.setText("Seaved Image");
-                imageList = measurement.getSeavedImageList();
+                imageList = measurement.getMeasurementImage().getSeavedImageList();
                 measurementType = DtsConstants.SEAVED;
                 List<Uri> seavedUriList = null;
                 if (measurementUriMap != null) {
