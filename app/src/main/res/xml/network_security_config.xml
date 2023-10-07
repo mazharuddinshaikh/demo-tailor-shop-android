@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
     <domain-config cleartextTrafficPermitted="true">
-        <domain includeSubdomains="true">192.168.121.119</domain>
-        <domain includeSubdomains="true">65.0.224.253</domain>
+        <domain includeSubdomains="true">https://318c-2401-4900-5616-748-bd40-7480-2b9-c4ee.ngrok-free.app</domain><!--dev-->
+        <domain includeSubdomains="true">65.0.224.253</domain><!--test-->
+        <domain includeSubdomains="true">20.219.198.148</domain><!--prod-->
     </domain-config>
 </network-security-config>

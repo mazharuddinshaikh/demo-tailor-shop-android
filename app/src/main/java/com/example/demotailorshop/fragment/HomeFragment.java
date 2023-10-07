@@ -155,19 +155,17 @@ public class HomeFragment extends Fragment {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 boolean isSelected = false;
-                switch (item.getItemId()) {
-//            Show search box
-//                    case R.id.mSearch:
-//                        isSelected = true;
-//                        break;
-//                Shoe sort and filter fragment
-                    case R.id.mSortAndFilter:
-                        isSelected = true;
-                        getChildFragmentManager().beginTransaction()
-                                .setReorderingAllowed(true)
-                                .replace(R.id.fcvFilterContainer, DressFilterFragment.class, null, "SigninFragment")
-                                .commit();
-                        break;
+                //            Show search box
+                //                    case R.id.mSearch:
+                //                        isSelected = true;
+                //                        break;
+                //                Shoe sort and filter fragment
+                if (item.getItemId() == R.id.mSortAndFilter) {
+                    isSelected = true;
+                    getChildFragmentManager().beginTransaction()
+                            .setReorderingAllowed(true)
+                            .replace(R.id.fcvFilterContainer, DressFilterFragment.class, null, "SigninFragment")
+                            .commit();
                 }
                 return isSelected;
             }
@@ -202,31 +200,29 @@ public class HomeFragment extends Fragment {
     private boolean setBottomNavigation(@NonNull MenuItem item, boolean isLoggedIn) {
         boolean isSelected = false;
         if (isLoggedIn) {
-            switch (item.getItemId()) {
-                case R.id.mAccount:
-                    isSelected = true;
-                    Log.i(TAG, "Filter menu Clicked");
-                    getChildFragmentManager().beginTransaction()
-                            .setReorderingAllowed(true)
-                            .replace(R.id.fcvHomeContainer, UserAccountFragment.class, null, "UserAccountFragment")
-                            .commit();
-                    break;
-                case R.id.mDress:
-                    isSelected = true;
-                    Log.i(TAG, "Dress menu clicked");
-                    getChildFragmentManager().beginTransaction()
-                            .setReorderingAllowed(true)
-                            .replace(R.id.fcvHomeContainer, DressListFragment.class, null, "DressListFragment")
-                            .commit();
-                    break;
-                case R.id.mAddDress:
-                    isSelected = true;
-                    AddDressFragment addDressFragment = new AddDressFragment();
-                    getChildFragmentManager().beginTransaction()
-                            .replace(R.id.fcvHomeContainer, addDressFragment, "AddDressFragment")
-                            .addToBackStack("AddDressFragment")
-                            .commit();
-                    break;
+            if(item.getItemId() == R.id.mAccount) {
+                isSelected = true;
+                Log.i(TAG, "Filter menu Clicked");
+                getChildFragmentManager().beginTransaction()
+                        .setReorderingAllowed(true)
+                        .replace(R.id.fcvHomeContainer, UserAccountFragment.class, null, "UserAccountFragment")
+                        .commit();
+            }
+            if(item.getItemId() == R.id.mDress) {
+                isSelected = true;
+                Log.i(TAG, "Dress menu clicked");
+                getChildFragmentManager().beginTransaction()
+                        .setReorderingAllowed(true)
+                        .replace(R.id.fcvHomeContainer, DressListFragment.class, null, "DressListFragment")
+                        .commit();
+            }
+            if(item.getItemId() == R.id.mAddDress) {
+                isSelected = true;
+                AddDressFragment addDressFragment = new AddDressFragment();
+                getChildFragmentManager().beginTransaction()
+                        .replace(R.id.fcvHomeContainer, addDressFragment, "AddDressFragment")
+                        .addToBackStack("AddDressFragment")
+                        .commit();
             }
         } else {
             Snackbar.make(binding.getRoot(), "Please login", BaseTransientBottomBar.LENGTH_SHORT).show();

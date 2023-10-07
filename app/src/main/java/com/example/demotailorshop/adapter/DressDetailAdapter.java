@@ -105,19 +105,19 @@ public class DressDetailAdapter extends RecyclerView.Adapter<DressDetailAdapter.
         binding.tilAmount.getEditText().setEnabled(false);
 
         Dress dress = dressList.get(position);
-        if (!isNewCustomer) {
+//        if (!isNewCustomer) {
             binding.tilDiscountedAmount.getEditText().setEnabled(false);
             binding.tilComment.getEditText().setEnabled(false);
             binding.tilDressCount.getEditText().setEnabled(false);
 
-            binding.tilOrderDate.getEditText().setImeOptions(EditorInfo.IME_ACTION_DONE);
-            binding.tilDeliveryDate.getEditText().setImeOptions(EditorInfo.IME_ACTION_DONE);
-            binding.tilDeliveryStatus.getEditText().setImeOptions(EditorInfo.IME_ACTION_DONE);
-            binding.tilPaymentStatus.getEditText().setImeOptions(EditorInfo.IME_ACTION_DONE);
-            binding.tilAmount.getEditText().setImeOptions(EditorInfo.IME_ACTION_DONE);
-            binding.tilDiscountedAmount.getEditText().setImeOptions(EditorInfo.IME_ACTION_DONE);
-            binding.tilComment.getEditText().setImeOptions(EditorInfo.IME_ACTION_DONE);
-            binding.tilDressCount.getEditText().setImeOptions(EditorInfo.IME_ACTION_DONE);
+//            binding.tilOrderDate.getEditText().setImeOptions(EditorInfo.IME_ACTION_DONE);
+//            binding.tilDeliveryDate.getEditText().setImeOptions(EditorInfo.IME_ACTION_DONE);
+//            binding.tilDeliveryStatus.getEditText().setImeOptions(EditorInfo.IME_ACTION_DONE);
+//            binding.tilPaymentStatus.getEditText().setImeOptions(EditorInfo.IME_ACTION_DONE);
+//            binding.tilAmount.getEditText().setImeOptions(EditorInfo.IME_ACTION_DONE);
+//            binding.tilDiscountedAmount.getEditText().setImeOptions(EditorInfo.IME_ACTION_DONE);
+//            binding.tilComment.getEditText().setImeOptions(EditorInfo.IME_ACTION_DONE);
+//            binding.tilDressCount.getEditText().setImeOptions(EditorInfo.IME_ACTION_DONE);
 
 
             if (dress != null) {
@@ -169,7 +169,7 @@ public class DressDetailAdapter extends RecyclerView.Adapter<DressDetailAdapter.
 //                binding.rvMeasurement.setLayoutManager(layoutManager);
 //                measurementAdapter.notifyDataSetChanged();
             }
-        }
+//        }
 //        else {
 //            binding.tilDiscountedAmount.getEditText().setEnabled(true);
 //            binding.tilComment.getEditText().setEnabled(true);
@@ -189,6 +189,9 @@ public class DressDetailAdapter extends RecyclerView.Adapter<DressDetailAdapter.
 //        }
 
         Measurement measurement = dress.getMeasurement();
+//        if(measurement == null) {
+//            measurement = new Measurement();
+//        }
         MeasurementAdapter measurementAdapter = new MeasurementAdapter();
         measurementAdapter.setMeasurement(measurement);
         measurementAdapter.setDisplayWidth(displayWidth);

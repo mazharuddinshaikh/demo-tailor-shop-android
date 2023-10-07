@@ -128,6 +128,7 @@ public class DressDetailFragment extends Fragment {
                 customerId = dress.getCustomer().getCustomerId();
             }
         }
+
         List<String> deliveryStatusList = Arrays.asList("DELIVERED", "UNDELIVERED", "CANCELLED");
         List<String> paymentStatusList = Arrays.asList("PAID", "UNPAID");
 
@@ -334,6 +335,7 @@ public class DressDetailFragment extends Fragment {
                     @Override
                     public void onResponse(@NonNull Call<ApiResponse<DressDetail>> call, @NonNull Response<ApiResponse<DressDetail>> response) {
                         Log.v(TAG, "Dress detail updated successfully");
+                        customerDressDetailAdapter.setNewCustomer(false);
                         int customerId = 0;
                         List<MultipartBody.Part> parts = null;
                         Map<String, File> updatedHashMap = null;
@@ -399,12 +401,26 @@ public class DressDetailFragment extends Fragment {
     private void updatedResponse(@NonNull Response<ApiResponse<DressDetail>> response, FragmentDressDetailBinding binding) {
         binding.btnUpdate.setEnabled(true);
         DressDetail updatedDressDetail = getUpdatedDressDetail(response);
+        updatedDressDetail.setDressList(getUpdatedDressList(updatedDressDetail.getDressList()));
         dressDetailViewModel.setDressDetail(updatedDressDetail);
         if (updatedDressDetail.getCustomer() != null) {
 
             updateCustomerTitle(binding, updatedDressDetail.getCustomer().getFirstName());
         }
         showSnackMessage(binding, "Dress details updated successfully");
+    }
+
+    private List<Dress> getUpdatedDressList(List<Dress> dressList) {
+        List<Dress> dressListNew = new ArrayList<>();
+        if (!DtsUtils.isNullOrEmpty(dressList)) {
+            for (Dress dress : dressList) {
+                if (dress.getMeasurement() == null) {
+                    dress.setMeasurement(new Measurement());
+                }
+                dressListNew.add(dress);
+            }
+        }
+        return dressListNew;
     }
 
     private DressDetail getUpdatedDressDetail(@NonNull Response<ApiResponse<DressDetail>> response) {
@@ -532,6 +548,7 @@ public class DressDetailFragment extends Fragment {
                     Uri uri = intent.getData();
                     List<Uri> uriList = new ArrayList<>();
                     uriList.add(uri);
+                    dressDetail.setDressList(getUpdatedDressList(dressDetail.getDressList()));
                     dressDetailViewModel.setDressDetail(dressDetail);
                     dressDetailViewModel.updateUriMap(uriList);
                     File uploadFile = new File(UriUtils.getPathFromUri(requireActivity(), uri));

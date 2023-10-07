@@ -61,12 +61,17 @@ public class MeasurementAdapter extends RecyclerView.Adapter<MeasurementAdapter.
         ImageListAdapter adapter = new ImageListAdapter();
         List<String> imageList = null;
         Map<String, List<Uri>> measurementUriMap = null;
+
+        Measurement.MeasurementImage measurementImage = measurement.getMeasurementImage();
+
         measurementUriMap = measurement.getUriMap();
         switch (position) {
 //            raw
             case 0:
                 binding.tvHeading.setText("Raw Dress Image");
-                imageList = measurement.getMeasurementImage().getRawImageList();
+                if(measurementImage != null) {
+                    imageList = measurement.getMeasurementImage().getRawImageList();
+                }
                 measurementType = DtsConstants.RAW;
                 List<Uri> rawUriList = null;
                 if (measurementUriMap != null) {
@@ -78,7 +83,9 @@ public class MeasurementAdapter extends RecyclerView.Adapter<MeasurementAdapter.
 //                measurement
             case 1:
                 binding.tvHeading.setText("Measurement Image");
-                imageList = measurement.getMeasurementImage().getMeasurementImageList();
+                if(measurementImage != null) {
+                    imageList = measurement.getMeasurementImage().getMeasurementImageList();
+                }
                 measurementType = DtsConstants.MEASUREMENT;
                 List<Uri> measurementUriList = null;
                 if (measurementUriMap != null) {
@@ -90,8 +97,9 @@ public class MeasurementAdapter extends RecyclerView.Adapter<MeasurementAdapter.
 //                pattern
             case 2:
                 binding.tvHeading.setText("Pattern Image");
-                imageList = measurement.getMeasurementImage().getPatternImageList();
-
+                if(measurementImage != null) {
+                    imageList = measurement.getMeasurementImage().getPatternImageList();
+                }
                 measurementType = DtsConstants.PATTERN;
                 List<Uri> patternUriList = null;
                 if (measurementUriMap != null) {
@@ -103,7 +111,9 @@ public class MeasurementAdapter extends RecyclerView.Adapter<MeasurementAdapter.
 //                seaved
             case 3:
                 binding.tvHeading.setText("Seaved Image");
-                imageList = measurement.getMeasurementImage().getSeavedImageList();
+                if(measurementImage != null) {
+                    imageList = measurement.getMeasurementImage().getSeavedImageList();
+                }
                 measurementType = DtsConstants.SEAVED;
                 List<Uri> seavedUriList = null;
                 if (measurementUriMap != null) {

@@ -20,12 +20,14 @@ import com.example.demotailorshop.utils.DtsSharedPreferenceUtil;
 import com.example.demotailorshop.utils.DtsUtils;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.introspect.AnnotationCollector;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -88,6 +90,17 @@ public class DressDetailViewModel extends ViewModel {
                     if (apiResponse != null) {
                         statusMessage = apiResponse.getMessage();
                         dressDetail = apiResponse.getResult();
+                        List<Dress> dressList = dressDetail.getDressList();
+                        List<Dress> dressListNew = new ArrayList<>();
+                        if(!DtsUtils.isNullOrEmpty(dressList)) {
+                            for(Dress dress : dressList) {
+                                if(dress.getMeasurement() == null) {
+                                    dress.setMeasurement(new Measurement());
+                                }
+                                dressListNew.add(dress);
+                            }
+                        }
+                        dressDetail.setDressList(dressListNew);
                     }
                     Log.v(TAG, statusMessage);
                 } else if (httpStatus == 204) {
@@ -168,6 +181,9 @@ public class DressDetailViewModel extends ViewModel {
         List<Dress> dressList = dressDetail.getDressList();
         Dress dress = getDress(dressDetail, this.dressId);
         Measurement measurement = dress.getMeasurement();
+        if(measurement == null) {
+            measurement = new Measurement();
+        }
         int positionToDelete = 0;
         Map<String, List<Uri>> oldUriMap = measurement.getUriMap();
         if (oldUriMap == null) {
