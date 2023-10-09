@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(@NonNull Call<ApiResponse<AndroidAppUpdate>> call, @NonNull Throwable t) {
-                    Snackbar.make(binding.getRoot(), "Something went wrong! Please retry", BaseTransientBottomBar.LENGTH_SHORT).show();
+//                    Snackbar.make(binding.getRoot(), "Something went wrong! Please retry", BaseTransientBottomBar.LENGTH_SHORT).show();
                     Log.e(TAG, "Something went wrong! " + t);
                 }
             });

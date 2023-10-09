@@ -62,6 +62,11 @@ public class DressListItemAdapter extends RecyclerView.Adapter<DressListItemAdap
                     .fallback(R.drawable.ic_no_image)
                     .error(R.drawable.ic_error_image)
                     .into(binding.getRoot());
+        } else {
+            Glide.with(this.context).load(R.drawable.ic_no_image)
+                    .fallback(R.drawable.ic_no_image)
+                    .error(R.drawable.ic_error_image)
+                    .into(binding.getRoot());
         }
         binding.getRoot().setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +79,7 @@ public class DressListItemAdapter extends RecyclerView.Adapter<DressListItemAdap
 
     @Override
     public int getItemCount() {
-        return DtsUtils.isNullOrEmpty(imageList) ? 0 : imageList.size();
+        return DtsUtils.isNullOrEmpty(imageList) ? 4 : imageList.size();
     }
 
     public static class DressListItemViewHolder extends RecyclerView.ViewHolder {

@@ -130,11 +130,11 @@ public class DressListAdapter extends RecyclerView.Adapter {
                 binding.tvDeliveryDate.setText(dress.getDeliveryDate());
                 Measurement measurement = dress.getMeasurement();
                 DressListItemAdapter dressListItemAdapter = new DressListItemAdapter();
-                List<String> dressListItemImageList = new ArrayList<>();
-                dressListItemImageList.add(getFirstImage(measurement.getMeasurementImage().getMeasurementImageList()));
-                dressListItemImageList.add(getFirstImage(measurement.getMeasurementImage().getRawImageList()));
-                dressListItemImageList.add(getFirstImage(measurement.getMeasurementImage().getPatternImageList()));
-                dressListItemImageList.add(getFirstImage(measurement.getMeasurementImage().getSeavedImageList()));
+                List<String> dressListItemImageList = null;
+                if(measurement != null && measurement.getMeasurementImage() != null) {
+                    Measurement.MeasurementImage measurementImage= measurement.getMeasurementImage();
+                    dressListItemImageList = getDressListItemImageList(measurementImage);
+                }
                 dressListItemAdapter.setContext(this.context);
                 dressListItemAdapter.setDisplayWidth(displayWidth);
                 dressListItemAdapter.setImageList(dressListItemImageList);
@@ -186,6 +186,15 @@ public class DressListAdapter extends RecyclerView.Adapter {
                 dressListLoadingBinding.getRoot().setText(loadingMessage);
                 break;
         }
+    }
+
+    private List<String> getDressListItemImageList(Measurement.MeasurementImage measurementImage) {
+        List<String> dressListItemImageList = new ArrayList<>();
+            dressListItemImageList.add(getFirstImage(measurementImage.getMeasurementImageList()));
+            dressListItemImageList.add(getFirstImage(measurementImage.getRawImageList()));
+            dressListItemImageList.add(getFirstImage(measurementImage.getPatternImageList()));
+            dressListItemImageList.add(getFirstImage(measurementImage.getSeavedImageList()));
+        return dressListItemImageList;
     }
 
     @Override

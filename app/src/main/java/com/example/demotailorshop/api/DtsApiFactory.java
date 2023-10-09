@@ -7,10 +7,10 @@ import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
 final public class DtsApiFactory {
-    private static final String DEV_URL = "https://f6ea-117-99-249-177.ngrok-free.app/digitailors/";
+    private static final String DEV_URL = "https://90ec-2401-4900-5612-fda8-fc0f-af9d-64a4-50ca.ngrok-free.app/digitailors/";
     private static final String TEST_URL = "http://192.168.121.119:8081/digitailors/";
     private static final String PROD_URL = "http://20.219.198.148:9000/digitailors/";
-    private static final String BASE_URL = DEV_URL;
+    private static final String BASE_URL = PROD_URL;
     private static Retrofit retrofit;
 
     //authTkoen "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXpoYXIiLCJpYXQiOjE2Mzk4MjM0OTgsImlzcyI6ImR0cy10YWlsb3Itc2hvcCJ9.hbRHvYk9EMi9UrYhFFXrMjV2yzQa4fj1kB0nRyMUXVI"

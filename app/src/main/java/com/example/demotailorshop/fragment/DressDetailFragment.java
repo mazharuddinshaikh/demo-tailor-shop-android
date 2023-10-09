@@ -367,7 +367,7 @@ public class DressDetailFragment extends Fragment {
 
             @Override
             public void onNegativeClick() {
-                binding.btnUpdate.setEnabled(false);
+                binding.btnUpdate.setEnabled(true);
             }
         };
         AlertDialog dialog = CustomDialog.getUpdateDialog(requireActivity(), "Add/Update Dress", "Are you sure want to add / update dress?", "Yes", "Cancel", listener);
